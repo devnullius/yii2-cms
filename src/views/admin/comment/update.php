@@ -1,11 +1,15 @@
 <?php
 
+use devnullius\cms\entities\post\Post;
+use devnullius\cms\forms\manage\post\CommentEditForm;
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\web\View;
+use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $post devnullius\cms\entities\Blog\Post\Post */
-/* @var $model devnullius\cms\forms\manage\Blog\Post\CommentEditForm */
+/* @var $this View */
+/* @var $post Post */
+/* @var $model CommentEditForm */
+/* @var $form ActiveForm */
 
 $this->title = 'Update Post: ' . $post->title;
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];

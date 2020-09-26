@@ -1,22 +1,15 @@
 <?php
 
-use kartik\file\FileInput;
-use devnullius\cms\entities\Blog\Post\Modification;
-use devnullius\cms\entities\Blog\Post\Value;
-use devnullius\cms\helpers\PriceHelper;
-use devnullius\cms\helpers\PostHelper;
-use devnullius\cms\helpers\WeightHelper;
-use yii\bootstrap\ActiveForm;
-use yii\grid\ActionColumn;
-use yii\grid\GridView;
-use yii\helpers\ArrayHelper;
+use devnullius\cms\entities\post\Post;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
+use yii\web\View;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $post devnullius\cms\entities\Blog\Post\Post */
-/* @var $comment devnullius\cms\entities\Blog\Post\Comment */
-/* @var $modificationsProvider yii\data\ActiveDataProvider */
+assert($this instanceof View);
+assert($post instanceof Post);
+assert($comment instanceof Comment);
+assert($modificationsProvider instanceof ActiveDataProvider);
 
 $this->title = $post->title;
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];

@@ -1,11 +1,10 @@
 <?php
 
-use kartik\widgets\FileInput;
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use devnullius\cms\forms\manage\post\PostForm;
+use yii\web\View;
 
-/* @var $this yii\web\View */
-/* @var $model devnullius\cms\forms\manage\Blog\Post\PostForm */
+assert($this instanceof View);
+assert($model instanceof PostForm);
 
 $this->title = 'Create Post';
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];

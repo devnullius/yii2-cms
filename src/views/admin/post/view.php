@@ -1,21 +1,16 @@
 <?php
 
-use kartik\file\FileInput;
-use devnullius\cms\entities\Blog\Post\Modification;
-use devnullius\cms\entities\Blog\Post\Value;
-use devnullius\cms\helpers\PriceHelper;
-use devnullius\cms\helpers\PostHelper;
-use devnullius\cms\helpers\WeightHelper;
-use yii\bootstrap\ActiveForm;
-use yii\grid\ActionColumn;
-use yii\grid\GridView;
+use devnullius\cms\entities\post\Post;
+use devnullius\helper\helpers\FlagHelper;
+use yii\data\ActiveDataProvider;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\web\View;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $post devnullius\cms\entities\Blog\Post\Post */
-/* @var $modificationsProvider yii\data\ActiveDataProvider */
+assert($this instanceof View);
+assert($post instanceof Post);
+assert($modificationsProvider instanceof ActiveDataProvider);
 
 $this->title = $post->title;
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
@@ -48,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'id',
                     [
                         'attribute' => 'status',
-                        'value' => PostHelper::statusLabel($post->status),
+                        'value' => FlagHelper::statusLabel($post->status),
                         'format' => 'raw',
                     ],
                     'title',
@@ -71,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php if ($post->photo) : ?>
                 <?= Html::a(Html::img($post->getThumbFileUrl('photo', 'thumb')), $post->getUploadedFileUrl('photo'), [
                     'class' => 'thumbnail',
-                    'target' => '_blank'
+                    'target' => '_blank',
                 ]) ?>
             <?php endif; ?>
         </div>
@@ -88,11 +83,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="box-header with-border">Content</div>
         <div class="box-body">
             <?= Yii::$app->formatter->asHtml($post->content, [
-                'Attr.AllowedRel' => array('nofollow'),
+                'Attr.AllowedRel' => ['nofollow'],
                 'HTML.SafeObject' => true,
                 'Output.FlashCompat' => true,
                 'HTML.SafeIframe' => true,
-                'URI.SafeIframeRegexp'=>'%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
+                'URI.SafeIframeRegexp' => '%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
             ]) ?>
         </div>
     </div>

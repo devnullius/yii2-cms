@@ -1,15 +1,16 @@
 <?php
 
-use devnullius\cms\entities\Blog\Post\Post;
-use devnullius\cms\helpers\PriceHelper;
-use devnullius\cms\helpers\PostHelper;
-use yii\grid\ActionColumn;
+use devnullius\cms\entities\post\Post;
+use devnullius\cms\search\PostSearch;
+use devnullius\helper\helpers\FlagHelper;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\web\View;
 
-/* @var $this yii\web\View */
-/* @var $searchModel devnullius\cms\forms\Blog\PostSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+assert($this instanceof View);
+assert($searchModel instanceof PostSearch);
+assert($dataProvider instanceof ActiveDataProvider);
 
 $this->title = 'Posts';
 $this->params['breadcrumbs'][] = $this->title;
@@ -51,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'status',
                         'filter' => $searchModel->statusList(),
                         'value' => function (Post $model) {
-                            return PostHelper::statusLabel($model->status);
+                            return FlagHelper::statusLabel($model->status);
                         },
                         'format' => 'raw',
                     ],

@@ -1,11 +1,12 @@
 <?php
 
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use devnullius\cms\entities\post\Post;
+use devnullius\cms\forms\manage\post\PostForm;
+use yii\web\View;
 
-/* @var $this yii\web\View */
-/* @var $post devnullius\cms\entities\Blog\Post\Post */
-/* @var $model devnullius\cms\forms\manage\Blog\Post\PostForm */
+assert($this instanceof View);
+assert($post instanceof Post);
+assert($model instanceof PostForm);
 
 $this->title = 'Update Post: ' . $post->title;
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];

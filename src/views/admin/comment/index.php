@@ -1,13 +1,16 @@
 <?php
 
-use devnullius\cms\entities\Blog\Post\Comment;
+use devnullius\cms\search\CommentSearch;
+use devnullius\cms\entities\post\Comment;
+use yii\data\ActiveDataProvider;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\StringHelper;
+use yii\web\View;
 
-/* @var $this yii\web\View */
-/* @var $searchModel devnullius\cms\forms\Blog\CommentSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+assert($this instanceof View);
+assert($searchModel instanceof CommentSearch);
+assert($dataProvider instanceof ActiveDataProvider);
 
 $this->title = 'Posts';
 $this->params['breadcrumbs'][] = $this->title;

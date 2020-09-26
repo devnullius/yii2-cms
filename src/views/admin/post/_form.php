@@ -1,13 +1,15 @@
 <?php
 
+use devnullius\cms\forms\manage\post\PostForm;
 use kartik\file\FileInput;
 use mihaildev\ckeditor\CKEditor;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\web\View;
 
-/* @var $this yii\web\View */
-/* @var $model devnullius\cms\forms\manage\Blog\Post\PostForm */
-/* @var $form yii\widgets\ActiveForm */
+/* @var $this View */
+/* @var $model PostForm */
+/* @var $form ActiveForm */
 ?>
 
 <div class="post-form">
