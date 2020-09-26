@@ -9,6 +9,7 @@ use devnullius\cms\entities\Category;
 use devnullius\cms\entities\Meta;
 use devnullius\cms\entities\post\queries\PostQuery;
 use devnullius\cms\entities\Tag;
+use devnullius\upload\ImageUploadBehavior;
 use DomainException;
 use lhs\Yii2SaveRelationsBehavior\SaveRelationsBehavior;
 use yii\db\ActiveQuery;
@@ -269,7 +270,7 @@ final class Post extends ActiveRecord
                 'relations' => ['tagAssignments', 'comments'],
             ],
             [
-                'class' => ImageUploadBehavior::className(),
+                'class' => ImageUploadBehavior::class,
                 'attribute' => 'photo',
                 'createThumbsOnRequest' => true,
                 'filePath' => '@staticRoot/origin/posts/[[id]].[[extension]]',

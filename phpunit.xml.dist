@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="DevNullius Yii2 User Test Suite">
+        <testsuite name="DevNullius Yii2 CMS Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
