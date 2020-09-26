@@ -9,6 +9,7 @@
         "devnullius/yii2-queue-addon": "^1.0",
         "devnullius/yii2-upload-behavior": "^0.0.1",
         "elisdn/yii2-composite-form": "^1.1",
+        "kartik-v/yii2-widgets": "^3.4",
         "la-haute-societe/yii2-save-relations-behavior": "^1.7",
         "paulzi/yii2-nested-sets": "^1.1",
         "ramsey/uuid": "^4.1",

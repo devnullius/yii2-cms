@@ -30,6 +30,7 @@ class Module extends BaseModule
         parent::init();
 
         $this->registerTranslations();
+        Yii::$app->params['bsVersion'] = '4.x';
     }
 
     final public function registerTranslations(): void
