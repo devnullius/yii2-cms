@@ -10,8 +10,6 @@ class Module extends BaseModule
 {
     public const VERSION = '1.0.0';
 
-    public $controllerNamespace = 'devnullius\user\controllers';
-
     /**
      * Translate module message
      *
@@ -32,7 +30,6 @@ class Module extends BaseModule
         parent::init();
 
         $this->registerTranslations();
-        Yii::$app->params['bsVersion'] = '4.x';
     }
 
     final public function registerTranslations(): void
