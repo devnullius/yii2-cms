@@ -29,9 +29,9 @@ final class MetaBehavior extends Behavior
         $model = $event->sender;
         $meta = Json::decode($model->getAttribute($this->jsonAttribute));
         $model->{$this->attribute} = new Meta(
-            ArrayHelper::getValue($meta, 'title'),
-            ArrayHelper::getValue($meta, 'description'),
-            ArrayHelper::getValue($meta, 'keywords')
+            (string)ArrayHelper::getValue($meta, 'title'),
+            (string)ArrayHelper::getValue($meta, 'description'),
+            (string)ArrayHelper::getValue($meta, 'keywords')
         );
     }
 
@@ -39,9 +39,9 @@ final class MetaBehavior extends Behavior
     {
         $model = $event->sender;
         $model->setAttribute('meta_json', Json::encode([
-            'title' => $model->{$this->attribute}->title,
-            'description' => $model->{$this->attribute}->description,
-            'keywords' => $model->{$this->attribute}->keywords,
+            'title' => (string)$model->{$this->attribute}->title,
+            'description' => (string)$model->{$this->attribute}->description,
+            'keywords' => (string)$model->{$this->attribute}->keywords,
         ]));
     }
 }

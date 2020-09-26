@@ -40,7 +40,7 @@ final class Post extends ActiveRecord
     public const STATUS_DRAFT = 10;
     public const STATUS_ACTIVE = 20;
 
-    public array $meta;
+    public Meta $meta;
 
     public static function create(int $categoryId, string $title, string $description, string $content, Meta $meta): self
     {

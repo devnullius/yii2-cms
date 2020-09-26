@@ -26,7 +26,7 @@ use yii\db\ActiveRecord;
  */
 final class Page extends ActiveRecord
 {
-    public array $meta;
+    public Meta $meta;
 
     public static function create(string $title, string $slug, string $content, Meta $meta): self
     {

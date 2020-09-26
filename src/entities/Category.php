@@ -17,7 +17,7 @@ use yii\db\ActiveRecord;
  */
 final class Category extends ActiveRecord
 {
-    public array $meta;
+    public Meta $meta;
 
     public static function create(string $name, string $slug, string $title, string $description, int $sort, Meta $meta): self
     {
