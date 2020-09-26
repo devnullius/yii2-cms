@@ -19,7 +19,7 @@ class m200926_220505_create_cms_comment_table extends Migration
             'parent_id' => $this->bigInteger(),
             'created_at' => $this->integer()->unsigned()->notNull(),
             'text' => $this->text()->notNull(),
-            'active' => $this->boolean()->notNull(),
+            'active' => $this->boolean()->notNull()->defaultValue(false),
         ], $tableOptions);
 
         $this->createIndex('{{%idx-cms_comment-post_id}}', '{{%cms_comment}}', 'post_id');

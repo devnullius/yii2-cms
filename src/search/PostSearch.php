@@ -5,6 +5,7 @@ namespace devnullius\cms\search;
 
 use devnullius\cms\entities\Category;
 use devnullius\cms\entities\post\Post;
+use devnullius\helper\helpers\FlagHelper;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use yii\helpers\ArrayHelper;
@@ -66,6 +67,6 @@ final class PostSearch extends Model
 
     public function statusList(): array
     {
-        return PostHelper::statusList();
+        return FlagHelper::statusList();
     }
 }

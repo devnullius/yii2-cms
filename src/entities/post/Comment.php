@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace devnullius\cms\entities\post;
 
 use devnullius\cms\entities\post\queries\PostQuery;
+use devnullius\helper\helpers\FlagHelper;
 use yii\db\ActiveRecord;
 
 /**
@@ -26,7 +27,7 @@ final class Comment extends ActiveRecord
         $review->parent_id = $parentId;
         $review->text = $text;
         $review->created_at = time();
-        $review->active = true;
+        $review->active = FlagHelper::IS_ACTIVE;
 
         return $review;
     }
@@ -44,17 +45,17 @@ final class Comment extends ActiveRecord
 
     public function activate(): void
     {
-        $this->active = true;
+        $this->active = FlagHelper::IS_ACTIVE;
     }
 
     public function draft(): void
     {
-        $this->active = false;
+        $this->active = FlagHelper::IS_DRAFT;
     }
 
     public function isActive(): bool
     {
-        return $this->active === true;
+        return $this->active === FlagHelper::IS_ACTIVE;
     }
 
     public function isIdEqualTo(int $id): bool

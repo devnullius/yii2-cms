@@ -6,6 +6,7 @@
     "require": {
         "php": ">=7.4 < 8.0",
         "devnullius/yii2-helper": "^1.0",
+        "devnullius/yii2-queue-addon": "^1.0",
         "devnullius/yii2-upload-behavior": "^0.0.1",
         "elisdn/yii2-composite-form": "^1.1",
         "la-haute-societe/yii2-save-relations-behavior": "^1.7",

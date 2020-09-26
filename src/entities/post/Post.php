@@ -9,6 +9,7 @@ use devnullius\cms\entities\Category;
 use devnullius\cms\entities\Meta;
 use devnullius\cms\entities\post\queries\PostQuery;
 use devnullius\cms\entities\Tag;
+use devnullius\helper\helpers\FlagHelper;
 use devnullius\upload\ImageUploadBehavior;
 use DomainException;
 use lhs\Yii2SaveRelationsBehavior\SaveRelationsBehavior;
@@ -38,9 +39,6 @@ use yii\web\UploadedFile;
  */
 final class Post extends ActiveRecord
 {
-    public const STATUS_DRAFT = 10;
-    public const STATUS_ACTIVE = 20;
-
     public Meta $meta;
 
     public static function create(int $categoryId, string $title, string $description, string $content, Meta $meta): self
@@ -51,7 +49,7 @@ final class Post extends ActiveRecord
         $post->description = $description;
         $post->content = $content;
         $post->meta = $meta;
-        $post->status = self::STATUS_DRAFT;
+        $post->status = FlagHelper::IS_DRAFT;
         $post->created_at = time();
         $post->comments_count = 0;
 
@@ -87,12 +85,12 @@ final class Post extends ActiveRecord
         if ($this->isActive()) {
             throw new DomainException('Post is already active.');
         }
-        $this->status = self::STATUS_ACTIVE;
+        $this->status = FlagHelper::IS_ACTIVE;
     }
 
     public function isActive(): bool
     {
-        return $this->status === self::STATUS_ACTIVE;
+        return $this->status === FlagHelper::IS_ACTIVE;
     }
 
     public function draft(): void
@@ -100,14 +98,14 @@ final class Post extends ActiveRecord
         if ($this->isDraft()) {
             throw new DomainException('Post is already draft.');
         }
-        $this->status = self::STATUS_DRAFT;
+        $this->status = FlagHelper::IS_DRAFT;
     }
 
     // Tags
 
     public function isDraft(): bool
     {
-        return $this->status === self::STATUS_DRAFT;
+        return $this->status === FlagHelper::IS_DRAFT;
     }
 
     public function getSeoTitle(): string

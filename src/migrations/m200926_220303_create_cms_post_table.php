@@ -20,7 +20,7 @@ class m200926_220303_create_cms_post_table extends Migration
             'description' => $this->text(),
             'content' => $this->text(),
             'photo' => $this->string(),
-            'status' => $this->integer()->notNull(),
+            'status' => $this->boolean()->notNull()->defaultValue(false),
             'meta_json' => $this->json()->notNull(),
         ], $tableOptions);
 
