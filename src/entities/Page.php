@@ -42,7 +42,7 @@ final class Page extends ActiveRecord
 
     public static function tableName(): string
     {
-        return '{{%page}}';
+        return '{{%cms_page}}';
     }
 
     public function edit(string $title, string $slug, string $content, Meta $meta): void

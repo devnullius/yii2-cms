@@ -12,7 +12,7 @@ class m200926_220808_create_page_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%page}}', [
+        $this->createTable('{{%cms_page}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
             'slug' => $this->string()->notNull(),
@@ -23,9 +23,9 @@ class m200926_220808_create_page_table extends Migration
             'depth' => $this->integer()->notNull(),
         ], $tableOptions);
 
-        $this->createIndex('{{%idx-page-slug}}', '{{%page}}', 'slug', true);
+        $this->createIndex('{{%idx-cms_page-slug}}', '{{%cms_page}}', 'slug', true);
 
-        $this->insert('{{%page}}', [
+        $this->insert('{{%cms_page}}', [
             'id' => 1,
             'title' => '',
             'slug' => 'root',
@@ -39,6 +39,6 @@ class m200926_220808_create_page_table extends Migration
 
     public function safeDown()
     {
-        $this->dropTable('{{%page}}');
+        $this->dropTable('{{%cms_page}}');
     }
 }
