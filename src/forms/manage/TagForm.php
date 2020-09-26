@@ -5,10 +5,12 @@ namespace devnullius\cms\forms\manage;
 
 use devnullius\cms\entities\Tag;
 use devnullius\cms\validators\SlugValidator;
+use devnullius\helper\forms\CoreFormTrait;
 use yii\base\Model;
 
 class TagForm extends Model
 {
+    use CoreFormTrait;
     public $name;
     public $slug;
 
@@ -29,6 +31,7 @@ class TagForm extends Model
         return [
             [['name', 'slug'], 'required'],
             [['name', 'slug'], 'string', 'max' => 255],
+            [['name', 'slug'], 'toString'],
             ['slug', SlugValidator::class],
             [['name', 'slug'], 'unique', 'targetClass' => Tag::class, 'filter' => $this->_tag ? ['<>', 'id', $this->_tag->id] : null],
         ];

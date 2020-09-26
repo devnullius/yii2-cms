@@ -3,10 +3,12 @@ declare(strict_types=1);
 
 namespace devnullius\cms\forms;
 
+use devnullius\helper\forms\CoreFormTrait;
 use yii\base\Model;
 
 class CommentForm extends Model
 {
+    use CoreFormTrait;
     public $parentId;
     public $text;
 
@@ -15,7 +17,9 @@ class CommentForm extends Model
         return [
             [['text'], 'required'],
             ['text', 'string'],
+            ['text', 'toString'],
             ['parentId', 'integer'],
+            ['parentId', 'toInt'],
         ];
     }
 }

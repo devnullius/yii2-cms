@@ -7,6 +7,7 @@ use devnullius\cms\entities\Category;
 use devnullius\cms\entities\post\Post;
 use devnullius\cms\forms\manage\MetaForm;
 use devnullius\cms\validators\SlugValidator;
+use devnullius\helper\forms\CoreFormTrait;
 use elisdn\compositeForm\CompositeForm;
 use yii\helpers\ArrayHelper;
 use yii\web\UploadedFile;
@@ -17,6 +18,7 @@ use yii\web\UploadedFile;
  */
 class PostForm extends CompositeForm
 {
+    use CoreFormTrait;
     public $categoryId;
     public $title;
     public $description;
@@ -45,7 +47,9 @@ class PostForm extends CompositeForm
             [['categoryId', 'title'], 'required'],
             [['title'], 'string', 'max' => 255],
             [['categoryId'], 'integer'],
+            [['categoryId'], 'toInt'],
             [['description', 'content'], 'string'],
+            [['description', 'content'], 'toString'],
             [['photo'], 'image'],
         ];
     }

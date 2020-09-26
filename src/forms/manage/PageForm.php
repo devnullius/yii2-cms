@@ -5,6 +5,7 @@ namespace devnullius\cms\forms\manage;
 
 use devnullius\cms\entities\Page;
 use devnullius\cms\validators\SlugValidator;
+use devnullius\helper\forms\CoreFormTrait;
 use elisdn\compositeForm\CompositeForm;
 use yii\helpers\ArrayHelper;
 
@@ -13,6 +14,7 @@ use yii\helpers\ArrayHelper;
  */
 class PageForm extends CompositeForm
 {
+    use CoreFormTrait;
     public $title;
     public $slug;
     public $content;
@@ -26,7 +28,7 @@ class PageForm extends CompositeForm
             $this->title = $page->title;
             $this->slug = $page->slug;
             $this->content = $page->content;
-            $this->parentId = $page->parent ? $page->parent->id : null;
+            $this->parentId = $page->parent->id ?? 1;
             $this->meta = new MetaForm($page->meta);
             $this->_page = $page;
         } else {
@@ -40,8 +42,11 @@ class PageForm extends CompositeForm
         return [
             [['title', 'slug'], 'required'],
             [['parentId'], 'integer'],
+            [['parentId'], 'toInt'],
             [['title', 'slug'], 'string', 'max' => 255],
+            [['title', 'slug'], 'toString'],
             [['content'], 'string'],
+            [['content'], 'toString'],
             ['slug', SlugValidator::class],
             [['slug'], 'unique', 'targetClass' => Page::class, 'filter' => $this->_page ? ['<>', 'id', $this->_page->id] : null],
         ];

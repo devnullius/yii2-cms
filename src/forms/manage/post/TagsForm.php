@@ -5,6 +5,7 @@ namespace devnullius\cms\forms\manage\post;
 
 use devnullius\cms\entities\post\Post;
 use devnullius\cms\entities\Tag;
+use devnullius\helper\forms\CoreFormTrait;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
 
@@ -13,6 +14,7 @@ use yii\helpers\ArrayHelper;
  */
 class TagsForm extends Model
 {
+    use CoreFormTrait;
     public $existing = [];
     public $textNew;
 
@@ -29,6 +31,7 @@ class TagsForm extends Model
         return [
             ['existing', 'each', 'rule' => ['integer']],
             ['textNew', 'string'],
+            ['textNew', 'toString'],
             ['existing', 'default', 'value' => []],
         ];
     }
