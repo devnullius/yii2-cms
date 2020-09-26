@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ffa51d9beb27c132a6d06cef450d63a",
+    "content-hash": "0d57e433ae474676c779272cf270aa84",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -367,16 +367,16 @@
         },
         {
             "name": "devnullius/yii2-upload-behavior",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/devnullius/yii2-upload-behavior.git",
-                "reference": "2a92abb94057bf56c07aacecc24267dbe7163872"
+                "reference": "b7a10a51d02380ba46e88aec9afd116a4495113b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devnullius/yii2-upload-behavior/zipball/2a92abb94057bf56c07aacecc24267dbe7163872",
-                "reference": "2a92abb94057bf56c07aacecc24267dbe7163872",
+                "url": "https://api.github.com/repos/devnullius/yii2-upload-behavior/zipball/b7a10a51d02380ba46e88aec9afd116a4495113b",
+                "reference": "b7a10a51d02380ba46e88aec9afd116a4495113b",
                 "shasum": ""
             },
             "require": {
@@ -440,10 +440,10 @@
                 "upload"
             ],
             "support": {
-                "source": "https://github.com/devnullius/yii2-upload-behavior/tree/0.0.2",
+                "source": "https://github.com/devnullius/yii2-upload-behavior/tree/0.0.3",
                 "issues": "https://github.com/devnullius/yii2-upload-behavior/issues"
             },
-            "time": "2020-09-26T21:41:30+00:00"
+            "time": "2020-09-26T21:57:31+00:00"
         },
         {
             "name": "elisdn/yii2-composite-form",
